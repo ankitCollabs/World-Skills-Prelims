@@ -11,8 +11,8 @@ datasource db {
 model User {
   id    String  @id @default(uuid())
   name  String
-  email String
-  phone String
+  email String @unique
+  mobile String @unique
   password  String
 
   posts Post[]  @relation("UserPost")
