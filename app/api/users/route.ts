@@ -3,7 +3,7 @@ import { User } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req:Request, res:NextResponse){
+export async function POST(req:Request){
     const body:User = await req.json();
     console.log(body.name, body.email, body.password.length, body.mobile.length)
     if(!body.name || !body.email || !body.password || !body.mobile){
