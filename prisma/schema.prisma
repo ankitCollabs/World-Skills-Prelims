@@ -13,6 +13,17 @@ model User {
   name  String
   email String
   phone String
+  password  String
+
+  posts Post[]  @relation("UserPost")
 
   createdAt DateTime @default(now())
+}
+
+model Post {
+  id    String  @id  @default(uuid())
+  title String 
+  
+  userId  String
+  user  User @relation("UserPost", fields: [userId], references: [id])
 }
